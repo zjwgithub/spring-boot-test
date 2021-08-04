@@ -1,0 +1,12 @@
+my.db.config: h2
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/mytestdb
+    username: sa
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect

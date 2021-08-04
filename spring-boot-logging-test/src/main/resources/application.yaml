@@ -1,0 +1,14 @@
+#spring:
+#  output:
+#    ansi:
+#      enabled: always
+
+logging:
+  level:
+    root: info
+    study.springbootloggingtest: trace
+  pattern:
+#    console: '%d{HH:mm:ss} %clr(%5level) %magenta([%t]) %cyan(%logger{1}) : %msg%n'
+#    console: '%d{HH:mm:ss} %clr(%5level) %magenta([%t]) %cyan(%-40(%logger{1})) : %msg%n'
+#    console: '%d{HH:mm:ss} %clr(%5level) %magenta([%t]) %cyan(%logger{1}.%method\(%class{0}.java:%line\)) : %msg%n'
+    console: '%d{HH:mm:ss} %clr(%5level) %magenta([%t]) %cyan(%-60(%logger{1}\(%class{0}.java:%line\))) : %msg%n'

@@ -1,0 +1,12 @@
+my.db.config: mysql
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dbhost:3306/mytestdb
+    username: root
+    password: test!234
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

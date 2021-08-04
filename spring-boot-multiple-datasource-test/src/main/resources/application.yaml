@@ -1,0 +1,21 @@
+member:
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@dbhost:1521/orclcdb
+    username: mytestdb
+    password: test!234
+  jpa:
+    hibernate:
+      hbm2ddl.auto: create
+      dialect: org.hibernate.dialect.Oracle12cDialect
+
+product:
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    jdbcUrl: jdbc:mariadb://dbhost:3306/mytestdb
+    username: root
+    password: test!234
+  jpa:
+    hibernate:
+      hbm2ddl.auto: create
+      dialect: org.hibernate.dialect.MariaDB103Dialect

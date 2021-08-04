@@ -1,0 +1,26 @@
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/dbcp-test
+    username: sa
+    password:
+
+# HikariCP
+#spring.datasource.type: com.zaxxer.hikari.HikariDataSource
+#spring.datasource.hikari.pool-name: dbcp-hikari-test
+#spring.datasource.hikari.maximum-pool-size: 10
+#spring.datasource.hikari.minimum-idle: 3
+#spring.datasource.hikari.max-lifetime: 1800000
+#spring.datasource.hikari.idle-timeout: 36000
+#spring.datasource.hikari.connection-timeout: 3000
+
+# Tomcat JDBC CP
+spring.datasource.type: org.apache.tomcat.jdbc.pool.DataSource
+spring.datasource.tomcat.name: dbcp-tomcat-test
+spring.datasource.tomcat.initial-size: 10
+spring.datasource.tomcat.max-wait: 3000
+spring.datasource.tomcat.max-active: 10
+spring.datasource.tomcat.max-idle: 10000
+spring.datasource.tomcat.min-idle: 5000
+spring.datasource.tomcat.test-on-borrow: true

@@ -1,0 +1,12 @@
+my.db.config: postgresql
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://dbhost:5432/mytestdb
+    username: postgres
+    password: test!234
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect

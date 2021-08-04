@@ -1,0 +1,15 @@
+
+# profile default
+spring:
+  profiles:
+    active:
+my.server.desc: config is default
+my.server.host: default host
+---
+# profile local
+spring:
+  config:
+    activate:
+      on-profile: local
+my.server.desc: config is local
+my.server.host: local host

@@ -1,0 +1,17 @@
+my.conf1: 111
+---
+my.conf2: 222
+spring:
+  profiles.active: h2
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        format_sql: true
+logging:
+  level:
+    root: info
+    org.hibernate.SQL: debug

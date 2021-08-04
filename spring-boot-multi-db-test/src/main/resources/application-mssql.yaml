@@ -1,0 +1,12 @@
+my.db.config: mssql
+
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://dbhost:1433;databaseName=mytestdb
+    username: sa
+    password: test!234
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
