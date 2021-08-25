@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localhost index</title>
+    
+    <style>
+        .form-label {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+    
+    <script>
+        function sendPost(elementId) {
+            document.getElementById(elementId).submit();
+        }
+    </script>
+    
+</head>
+<body>
+
+<h3>parameter binding 테스트</h3>
+<ul>
+    <li><a href="/param?username=hello&age=spring">GET /param</a></li>
+    <li><a href="/param/model?username=hello&age=spring">GET /param/model</a></li>
+    <li><a href="#" onclick="sendPost('form1')">POST /param</a>
+        <form id="form1" action="/param" method="post">
+            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
+            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+        </form>
+    </li>
+    <li><a href="#" onclick="sendPost('form2')">POST /param/model</a>
+        <form id="form2" action="/param/model" method="post">
+            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
+            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+        </form>
+    </li>
+    <li><a href="/param/path/hello/spring">GET /param/path</a></li>
+</ul>
+
+</body>
+</html>
