@@ -1,9 +1,9 @@
-package study.boottest.controller;
+package study.boottest.controller.basic;
 
 import lombok.Data;
 
 @Data
-public class ParamForm {
+public class BasicParamForm {
     
     private String username;
     private String age;

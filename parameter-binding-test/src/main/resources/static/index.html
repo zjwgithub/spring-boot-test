@@ -22,21 +22,37 @@
 
 <h3>parameter binding 테스트</h3>
 <ul>
-    <li><a href="/param?username=hello&age=spring">GET /param</a></li>
-    <li><a href="/param/model?username=hello&age=spring">GET /param/model</a></li>
-    <li><a href="#" onclick="sendPost('form1')">POST /param</a>
-        <form id="form1" action="/param" method="post">
-            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
-            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
-        </form>
+    <li>@RequestParam
+        <ul>
+            <li><a href="/basic-param?username=hello&age=spring">GET</a></li>
+            <li><a href="#" onclick="sendPost('form1')">POST</a>
+                <form id="form1" action="/basic-param" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+                </form>
+            </li>
+        </ul>
     </li>
-    <li><a href="#" onclick="sendPost('form2')">POST /param/model</a>
-        <form id="form2" action="/param/model" method="post">
-            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
-            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
-        </form>
+    <li>@ModelAttribute
+        <ul>
+            <li><a href="/basic-param/model?username=hello&age=spring">GET</a></li>
+            <li><a href="#" onclick="sendPost('form2')">POST</a>
+                <form id="form2" action="/basic-param/model" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+                </form>
+            </li>
+        </ul>
     </li>
-    <li><a href="/param/path/hello/spring">GET /param/path</a></li>
+    <li>@PathVariable
+        <ul>
+            <li><a href="/basic-param/path/hello/spring">GET</a></li>
+            <li><a href="#" onclick="sendPost('form3')">POST</a>
+                <form id="form3" action="/basic-param/path/hello/spring" method="post">
+                </form>
+            </li>
+        </ul>
+    </li>
 </ul>
 
 </body>
