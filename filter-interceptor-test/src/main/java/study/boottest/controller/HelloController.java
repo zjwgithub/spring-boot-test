@@ -22,7 +22,7 @@ public class HelloController {
         throw new RuntimeException("raiseEx 발생");
     }
     
-//    @ExceptionHandler
+    @ExceptionHandler
     public void handleEx(RuntimeException ex) {
         print(getClass(), "handleEx " + ex);
     }

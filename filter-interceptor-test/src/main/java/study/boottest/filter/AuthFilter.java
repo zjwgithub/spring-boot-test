@@ -16,9 +16,16 @@ public class AuthFilter implements Filter {
         String method = httpRequest.getMethod();
         String requestURI = httpRequest.getRequestURI();
         DispatcherType dispatcherType = httpRequest.getDispatcherType();
-        print(getClass(), "doFilter 시작, " + dispatcherType + " " + method + " " + requestURI);
-        chain.doFilter(request, response);
-        print(getClass(), "doFilter 종료, " + dispatcherType + " " + method + " " + requestURI);
+
+        try {
+            print(getClass(), "doFilter 시작, " + dispatcherType + " " + method + " " + requestURI);
+            chain.doFilter(request, response);
+        } catch (Exception e) {
+            print(getClass(), "doFilter 에러, " + e);
+            throw e;
+        } finally {
+            print(getClass(), "doFilter 종료, " + dispatcherType + " " + method + " " + requestURI);
+        }
     }
 
     @Override
