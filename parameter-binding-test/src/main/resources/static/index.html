@@ -20,13 +20,13 @@
 </head>
 <body>
 
-<h3>parameter binding 테스트</h3>
+<h3>BasicParamController 테스트</h3>
 <ul>
     <li>@RequestParam
         <ul>
             <li><a href="/basic-param?username=hello&age=spring">GET</a></li>
-            <li><a href="#" onclick="sendPost('form1')">POST</a>
-                <form id="form1" action="/basic-param" method="post">
+            <li><a href="#" onclick="sendPost('form11')">POST</a>
+                <form id="form11" action="/basic-param" method="post">
                     <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
                     <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
                 </form>
@@ -36,8 +36,8 @@
     <li>@ModelAttribute
         <ul>
             <li><a href="/basic-param/model?username=hello&age=spring">GET</a></li>
-            <li><a href="#" onclick="sendPost('form2')">POST</a>
-                <form id="form2" action="/basic-param/model" method="post">
+            <li><a href="#" onclick="sendPost('form12')">POST</a>
+                <form id="form12" action="/basic-param/model" method="post">
                     <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
                     <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
                 </form>
@@ -47,11 +47,21 @@
     <li>@PathVariable
         <ul>
             <li><a href="/basic-param/path/hello/spring">GET</a></li>
-            <li><a href="#" onclick="sendPost('form3')">POST</a>
-                <form id="form3" action="/basic-param/path/hello/spring" method="post">
+            <li><a href="#" onclick="sendPost('form13')">POST</a>
+                <form id="form13" action="/basic-param/path/hello/spring" method="post">
                 </form>
             </li>
         </ul>
+    </li>
+</ul>
+
+<h3>ValidationParamController 테스트</h3>
+<ul>
+    <li><a href="#" onclick="sendPost('form21')">POST</a>
+        <form id="form21" action="/validation-param" method="post">
+            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
+            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+        </form>
     </li>
 </ul>
 
