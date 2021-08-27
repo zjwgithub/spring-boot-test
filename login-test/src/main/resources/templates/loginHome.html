@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>localhost index</title>
-    
-    <style>
-        .form-label {
-            display: inline-block;
-            width: 100px;
-        }
-    </style>
-    
-    <script>
-        function sendPost(elementId) {
-            document.getElementById(elementId).submit();
-        }
-    </script>
-    
+
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 
-<span th:text="|로그인됨: ${member.loginId}|">로그인됨</span>
+<span th:text="|안녕하세요? ${member.name} 님|">로그인 이름</span>
 <form action="/logout" method="post">
-    <button type="submit">logout</button>
+    <input type="submit" value="logout">
 </form>
 
 </body>

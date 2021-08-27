@@ -1,4 +1,4 @@
-package study.boottest.controller;
+package study.boottest.web;
 
 import lombok.Data;
 
