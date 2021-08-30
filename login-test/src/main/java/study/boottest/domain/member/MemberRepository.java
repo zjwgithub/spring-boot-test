@@ -1,14 +1,16 @@
-package study.boottest.domain;
+package study.boottest.domain.member;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Slf4j
 @Repository
 public class MemberRepository {
-    
+
+    private static final Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
-    private static Map<Long, Member> store = new HashMap<>();
 
     public Member save(Member member) {
         member.setId(++sequence);
@@ -19,14 +21,14 @@ public class MemberRepository {
     public Member findById(Long id) {
         return store.get(id);
     }
+
+    public Optional<Member> findByLoginId(String loginId) {
+        return findAll().stream()
+                .filter(m -> m.getLoginId().equals(loginId))
+                .findFirst();
+    }
     
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
-    }
-    
-    public Optional<Member> findByLoginId(String loginId) {
-        return store.values().stream()
-                .filter(m -> m.getLoginId().equals(loginId))
-                .findFirst();
     }
 }

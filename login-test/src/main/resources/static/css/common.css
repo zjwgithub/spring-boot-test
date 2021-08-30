@@ -1,0 +1,23 @@
+* {
+    font-size: 13pt;
+}
+
+.form-label {
+    display: inline-block;
+    width: 100px;
+}
+.field-error {
+    border-color: red;
+    color: red;
+}
+
+table, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+thead {
+    background-color: lightgray;
+}
+td {
+    padding: 4px;
+}

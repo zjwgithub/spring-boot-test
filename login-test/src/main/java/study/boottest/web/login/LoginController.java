@@ -1,55 +1,54 @@
-package study.boottest.web;
+package study.boottest.web.login;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import study.boottest.domain.LoginService;
-import study.boottest.domain.Member;
+import org.springframework.web.bind.annotation.RequestParam;
+import study.boottest.domain.login.LoginService;
+import study.boottest.domain.member.Member;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
 
     private final LoginService loginService;
-    
+
     @GetMapping("/login")
-    public String loginForm() {
+    public String loginForm(Model model) {
+        model.addAttribute("loginForm", new LoginForm());
         return "loginForm";
     }
-    
+
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request, Model model) {
-        log.info("login loginForm={}", loginForm);
+    public String login(@Valid @ModelAttribute("loginForm") LoginForm loginForm, 
+                        BindingResult bindingResult, 
+                        @RequestParam(name = "redirectURL", defaultValue = "/") String redirectURL,
+                        HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
-            log.info("bindingResult={}", bindingResult);
             return "loginForm";
         }
+        
         Member member = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
         if (member == null) {
-            log.info("member not found");
-            bindingResult.reject("member not found");
+            bindingResult.reject("loginFail", "member not found");
+            bindingResult.reject("errMsg1", "에러1 발생");
+            bindingResult.reject("errMsg2", "에러2 발생");
             return "loginForm";
         }
 
         HttpSession session = request.getSession(true);
-        session.setAttribute("mySessionId", member.getId());
-        session.setAttribute("mySessionNm", member.getName());
+        session.setAttribute("loginMember", member);
+        session.setAttribute("loginMemberAge", member.getAge());
         
-        model.addAttribute("member", member);
-
-        return "redirect:/";
+        return "redirect:" + redirectURL;
     }
     
     @PostMapping("/logout")
@@ -60,4 +59,5 @@ public class LoginController {
         }
         return "redirect:/";
     }
+    
 }

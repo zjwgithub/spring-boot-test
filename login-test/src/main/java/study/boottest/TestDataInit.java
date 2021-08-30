@@ -2,8 +2,8 @@ package study.boottest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import study.boottest.domain.Member;
-import study.boottest.domain.MemberRepository;
+import study.boottest.domain.member.Member;
+import study.boottest.domain.member.MemberRepository;
 
 import javax.annotation.PostConstruct;
 
@@ -15,8 +15,8 @@ public class TestDataInit {
     
     @PostConstruct
     public void init() {
-        memberRepository.save(new Member("test1", "테스트1", "test!"));
-        memberRepository.save(new Member("test2", "테스트2", "test!"));
-        memberRepository.save(new Member("test3", "테스트3", "test!"));
+        memberRepository.save(new Member("test1", "testA", 10, "test!"));
+        memberRepository.save(new Member("test2", "testB", 20, "test!"));
+        memberRepository.save(new Member("test3", "testC", 30, "test!"));
     }
 }

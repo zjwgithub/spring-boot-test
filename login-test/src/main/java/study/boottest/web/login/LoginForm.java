@@ -1,4 +1,4 @@
-package study.boottest.web;
+package study.boottest.web.login;
 
 import lombok.Data;
 

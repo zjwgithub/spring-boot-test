@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<form action="/logout" method="post" th:fragment="loginOk(loginMember, loginMemberAge)">
+    <span th:text="|안녕하세요? ${loginMember.name} (${loginMemberAge}) 님|">안녕하세요? 이름 님 (나이)</span>
+    <input type="submit" value="로그아웃">
+</form>
+
+</body>
+</html>

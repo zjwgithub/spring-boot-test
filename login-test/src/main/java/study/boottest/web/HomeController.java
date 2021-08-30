@@ -6,11 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import study.boottest.domain.Member;
-import study.boottest.domain.MemberRepository;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import study.boottest.domain.member.Member;
+import study.boottest.domain.member.MemberRepository;
+import study.boottest.web.login.LoginForm;
 
 @Slf4j
 @Controller
@@ -18,24 +17,22 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
     private final MemberRepository memberRepository;
-    
+
     @GetMapping("/")
-    public String loginHome(HttpServletRequest request, Model model) {
+    public String home(@SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                       @SessionAttribute(value = "loginMemberAge", required = false) Integer loginMemberAge,
+                       @ModelAttribute("loginForm") LoginForm loginForm,
+                       Model model) {
 
-        HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("mySessionId") == null) {
-            log.info("session not found");
-            return "home";
-        }
-
-        Long mySessionId = (Long) session.getAttribute("mySessionId");
-        String mySessionNm = String.valueOf(session.getAttribute("mySessionNm"));
-        Member member = memberRepository.findById(mySessionId);
-        if (member == null) {
-            return "home";
+        if (loginMember == null || memberRepository.findById(loginMember.getId()) == null) {
+            log.info("session not valid");
+            return "redirect:login";
         }
         
-        model.addAttribute("member", member);
-        return "loginHome";
+        model.addAttribute("loginMember", loginMember);
+        model.addAttribute("loginMemberAge", loginMemberAge);
+
+        return "loginDone";
     }
+
 }
