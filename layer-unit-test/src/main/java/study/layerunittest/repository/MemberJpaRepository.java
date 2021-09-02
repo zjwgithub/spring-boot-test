@@ -1,10 +1,12 @@
-package study.layerunittest.member;
+package study.layerunittest.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import study.layerunittest.domain.Member;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,11 +24,9 @@ public class MemberJpaRepository {
                 .getResultList();
     }
     
-    public Member findById(Long id) {
-        return em.find(Member.class, id);
-//        return em.createQuery("select m from Member m where m.id = :id", Member.class)
-//                .setParameter("id", id)
-//                .getSingleResult();
+    public Optional<Member> findById(Long id) {
+        Member member = em.find(Member.class, id);
+        return Optional.ofNullable(member);
     }
     
     public List<Member> findByName(String name) {
@@ -35,17 +35,21 @@ public class MemberJpaRepository {
                 .getResultList();
     }
 
-    public int update(Long id, Member member) {
-        return em.createQuery("update Member m set m.name = :name, m.age = :age where m.id = :id")
-                .setParameter("id", id)
-                .setParameter("name", member.getName())
-                .setParameter("age", member.getAge())
-                .executeUpdate();
-    }
-
     public int deleteById(Long id) {
         return em.createQuery("delete from Member m where m.id = :id")
                 .setParameter("id", id)
                 .executeUpdate();
     }
+    
+    public int deleteAll() {
+        return em.createQuery("delete from Member m")
+                .executeUpdate();
+    }
+
+    public int increaseAge(int addAge) {
+        return em.createQuery("update Member m set m.age = m.age  + :age")
+                .setParameter("age", addAge)
+                .executeUpdate();
+    }
+    
 }
