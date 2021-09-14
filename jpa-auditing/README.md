@@ -3,52 +3,53 @@
   - @PrePersist
   - @PreUpdate
 
-
-    @MappedSuperclass
-    @ToString
-    public class JpaBaseEntity {
+  ```
+  @MappedSuperclass
+  @ToString
+  public class JpaBaseEntity {
     
-        @Column(updatable = false)
-        private LocalDateTime createdDate;
-        private LocalDateTime updatedDate;
+    @Column(updatable = false)
+    private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
         
-        @PrePersist
-        public void prePersist() {
-            LocalDateTime now = LocalDateTime.now();
-            createdDate = now;
-            updatedDate = now;
-        }
-        
-        @PreUpdate
-        public void preUpdate() {
-            updatedDate = LocalDateTime.now();
-        }
+    @PrePersist
+    public void prePersist() {
+        LocalDateTime now = LocalDateTime.now();
+        createdDate = now;
+        updatedDate = now;
     }
+        
+    @PreUpdate
+    public void preUpdate() {
+        updatedDate = LocalDateTime.now();
+    }
+  }
+  ```
 
 - ### Member
   - extends JpaBaseEntity
 
-
-    @Getter @Setter
-    @ToString(callSuper = true)
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
-    public class Member extends JpaBaseEntity {
+  ```
+  @Getter @Setter
+  @ToString(callSuper = true)
+  @NoArgsConstructor(access = AccessLevel.PROTECTED)
+  public class Member extends JpaBaseEntity {
     
-        @Id @GeneratedValue
-        @Column(name = "member_id")
-        private Long id;
+      @Id @GeneratedValue
+      @Column(name = "member_id")
+      private Long id;
         
-        private String name;
-        private Integer age;
+      private String name;
+      private Integer age;
     
-        public Member(String name) {
-            this.name = name;
-        }
-    }
+      public Member(String name) {
+          this.name = name;
+      }
+  }
+  ```
 
 - ### MemberJpaRepositoryTest
-
-
+    ```
     @SpringBootTest
     @Transactional
     @Commit
@@ -76,3 +77,4 @@
             System.out.println("member Updated = " + member);
         }
     }
+    ```
