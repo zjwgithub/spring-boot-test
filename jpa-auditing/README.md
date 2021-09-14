@@ -3,7 +3,7 @@
   - @PrePersist
   - @PreUpdate
 
-  ```
+  ```java
   @MappedSuperclass
   @ToString
   public class JpaBaseEntity {
@@ -29,7 +29,7 @@
 - ### Member
   - extends JpaBaseEntity
 
-  ```
+  ```java
   @Getter @Setter
   @ToString(callSuper = true)
   @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -49,7 +49,7 @@
   ```
 
 - ### MemberJpaRepositoryTest
-    ```
+    ```java
     @SpringBootTest
     @Transactional
     @Commit
