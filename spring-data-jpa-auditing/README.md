@@ -11,7 +11,7 @@
     
     }
     ```
-- ## Auditing Entity
+- ## Base Entity
   - ### BaseTimeEntity
     ```java
     @EntityListeners(AuditingEntityListener.class)
