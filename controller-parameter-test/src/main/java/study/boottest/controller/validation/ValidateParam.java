@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class ValidParam {
+public class ValidateParam {
     
     @NotBlank
     private String username;

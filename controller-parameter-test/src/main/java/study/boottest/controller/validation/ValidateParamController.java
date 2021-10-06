@@ -14,7 +14,7 @@ import java.util.List;
 public class ValidateParamController {
 
     @GetMapping
-    public String getModel(@Validated ValidParam validParam, BindingResult bindingResult) {
+    public String getModel(@Validated ValidateParam validateParam, BindingResult bindingResult) {
         System.out.println("ValidateParamController.getModel");
         log.info("bindingResult.hasErrors() = " + bindingResult.hasErrors());
         if (bindingResult.hasErrors()) {
@@ -25,12 +25,12 @@ public class ValidateParamController {
             }
             return "fail";
         }
-        log.info("validParamForm={}", validParam);
+        log.info("validateParam={}", validateParam);
         return "ok";
     }
 
     @PostMapping
-    public String postModel(@Validated ValidParam validParam, BindingResult bindingResult) {
+    public String postModel(@Validated ValidateParam validateParam, BindingResult bindingResult) {
         System.out.println("ValidateParamController.postModel");
         log.info("bindingResult.hasErrors() = " + bindingResult.hasErrors());
         if (bindingResult.hasErrors()) {
@@ -41,7 +41,7 @@ public class ValidateParamController {
             }
             return "fail";
         }
-        log.info("validParamForm={}", validParam);
+        log.info("validateParam={}", validateParam);
         return "ok";
     }
 }

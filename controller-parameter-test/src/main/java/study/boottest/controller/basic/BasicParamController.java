@@ -25,14 +25,14 @@ public class BasicParamController {
     @GetMapping("/model")
     public String getModel(@ModelAttribute BasicParam basicParam) {
         System.out.println("BasicParamController.getModel");
-        log.info("basicParamForm={}" + basicParam);
+        log.info("basicParam={}" + basicParam);
         return "GET ModelAttribute OK, " + basicParam;
     }
 
     @PostMapping("/model")
     public String postModel(@ModelAttribute BasicParam basicParam) {
         System.out.println("BasicParamController.postModel");
-        log.info("basicParamForm={}" + basicParam);
+        log.info("basicParam={}" + basicParam);
         return "POST ModelAttribute OK, " + basicParam;
     }
 
