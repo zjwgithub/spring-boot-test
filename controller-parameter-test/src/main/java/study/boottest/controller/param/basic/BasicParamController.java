@@ -1,4 +1,4 @@
-package study.boottest.controller.basic;
+package study.boottest.controller.param.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

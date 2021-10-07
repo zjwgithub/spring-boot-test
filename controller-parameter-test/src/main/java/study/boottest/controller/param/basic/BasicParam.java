@@ -1,4 +1,4 @@
-package study.boottest.controller.basic;
+package study.boottest.controller.param.basic;
 
 import lombok.Data;
 
