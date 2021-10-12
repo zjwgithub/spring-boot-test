@@ -3,8 +3,8 @@ package study.boottest.controller.param_test.basic.param;
 import lombok.Data;
 
 @Data
-public class BasicParam {
+public class MemberParam {
     
     private String username;
-    private String age;
+    private Integer age;
 }

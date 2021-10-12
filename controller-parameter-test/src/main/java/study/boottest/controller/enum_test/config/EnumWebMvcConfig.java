@@ -8,7 +8,7 @@ import study.boottest.controller.enum_test.converter.SearchCodeStringTypeConvert
 import study.boottest.controller.enum_test.converter.SearchTypeConverter;
 
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer {
+public class EnumWebMvcConfig implements WebMvcConfigurer {
     
     @Override
     public void addFormatters(FormatterRegistry registry) {

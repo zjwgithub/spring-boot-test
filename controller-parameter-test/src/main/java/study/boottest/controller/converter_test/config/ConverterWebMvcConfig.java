@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import study.boottest.controller.converter_test.converter.StringToIntegerConverter;
 
 @Configuration
-public class WebMvcConfig2 implements WebMvcConfigurer {
+public class ConverterWebMvcConfig implements WebMvcConfigurer {
     
     @Override
     public void addFormatters(FormatterRegistry registry) {

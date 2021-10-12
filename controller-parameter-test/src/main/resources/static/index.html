@@ -20,47 +20,80 @@
 </head>
 <body>
 
-<h3>BasicParamController 테스트</h3>
+<h3>Parameter Binding 테스트</h3>
 <ul>
     <li>@RequestParam
         <ul>
-            <li><a href="/basic-param?username=hello&age=spring">GET</a></li>
+            <li><a href="/request-param?username=james&age=20">GET /request-param?username=james&age=20</a></li>
+            <li><a href="/request-param?username=james&age=aa">GET /request-param?username=james&age=aa</a></li>
             <li><a href="#" onclick="sendPost('form11')">POST</a>
-                <form id="form11" action="/basic-param" method="post">
-                    <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
-                    <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+                <form id="form11" action="/request-param" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="james"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="20"/></label>
                 </form>
             </li>
         </ul>
     </li>
     <li>@ModelAttribute
         <ul>
-            <li><a href="/basic-param/model?username=hello&age=spring">GET</a></li>
+            <li><a href="/model-param?username=james&age=20">GET /model-param?username=james&age=20</a></li>
+            <li><a href="/model-param?username=james&age=aa">GET /model-param?username=james&age=aa</a></li>
             <li><a href="#" onclick="sendPost('form12')">POST</a>
-                <form id="form12" action="/basic-param/model" method="post">
-                    <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
-                    <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+                <form id="form12" action="/model-param" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="james"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="20"/></label>
                 </form>
             </li>
         </ul>
     </li>
     <li>@PathVariable
         <ul>
-            <li><a href="/basic-param/path/hello/spring">GET</a></li>
-            <li><a href="#" onclick="sendPost('form13')">POST</a>
-                <form id="form13" action="/basic-param/path/hello/spring" method="post">
+            <li><a href="/path-param/james/20">GET /path-param/james/20</a></li>
+            <li><a href="/path-param/james/aa">GET /path-param/james/aa</a></li>
+            <li><a href="#" onclick="sendPost('form13')">POST /path-param/james/20</a>
+                <form id="form13" action="/path-param/james/20" method="post">
+                </form>
+            </li>
+            <li><a href="#" onclick="sendPost('form14')">POST /path-param/james/aa</a>
+                <form id="form14" action="/path-param/james/aa" method="post">
+                </form>
+            </li>
+        </ul>
+    </li>
+    <li>extend-param
+        <ul>
+            <li><a href="/extend-param?username=james&age=20&city=seoul">GET /extend-param?username=james&age=20&city=seoul</a></li>
+            <li><a href="/extend-param?username=james&age=aa&city=seoul">GET /extend-param?username=james&age=aa&city=seoul</a></li>
+            <li><a href="#" onclick="sendPost('form41')">POST /extend-param</a>
+                <form id="form41" action="/extend-param" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="james"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="20"/></label>
+                    <label><span class="form-label">city</span><input type="text" name="city" value="seoul"/></label>
+                </form>
+            </li>
+        </ul>
+    </li>
+    <li>nested-param
+        <ul>
+            <li><a href="/nested-param?username=james&age=20&address.city=seoul">GET /nested-param?username=james&age=20&address.city=seoul</a></li>
+            <li><a href="/nested-param?username=james&age=aa&address.city=seoul">GET /nested-param?username=james&age=aa&address.city=seoul</a></li>
+            <li><a href="#" onclick="sendPost('form41')">POST /nested-param</a>
+                <form id="form41" action="/nested-param" method="post">
+                    <label><span class="form-label">username</span><input type="text" name="username" value="james"/></label><br>
+                    <label><span class="form-label">age</span><input type="text" name="age" value="20"/></label>
+                    <label><span class="form-label">address.city</span><input type="text" name="address.city" value="seoul"/></label>
                 </form>
             </li>
         </ul>
     </li>
 </ul>
 
-<h3>ValidationParamController 테스트</h3>
+<h3>Validation 테스트</h3>
 <ul>
     <li><a href="#" onclick="sendPost('form21')">POST</a>
         <form id="form21" action="/validate-param" method="post">
-            <label><span class="form-label">username</span><input type="text" name="username" value="hello"/></label><br>
-            <label><span class="form-label">age</span><input type="text" name="age" value="spring"/></label>
+            <label><span class="form-label">username</span><input type="text" name="username" value="james"/></label><br>
+            <label><span class="form-label">age</span><input type="text" name="age" value="20"/></label>
         </form>
     </li>
 </ul>
