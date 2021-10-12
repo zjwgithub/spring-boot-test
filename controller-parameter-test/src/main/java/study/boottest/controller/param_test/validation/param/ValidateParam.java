@@ -1,4 +1,4 @@
-package study.boottest.controller.param_test.validation;
+package study.boottest.controller.param_test.validation.param;
 
 import lombok.Data;
 

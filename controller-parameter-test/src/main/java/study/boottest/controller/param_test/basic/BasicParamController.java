@@ -2,6 +2,7 @@ package study.boottest.controller.param_test.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import study.boottest.controller.param_test.basic.param.BasicParam;
 
 @Slf4j
 @RestController
