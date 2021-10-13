@@ -1,4 +1,4 @@
-package study.boottest;
+package study.boottest.dto;
 
 import org.junit.jupiter.api.Test;
 

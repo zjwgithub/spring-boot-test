@@ -1,4 +1,4 @@
-package study.boottest;
+package study.boottest.conversionService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
