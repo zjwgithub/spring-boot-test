@@ -1,15 +1,15 @@
-package study.boottest.controller.converter_test.config;
+package study.boottest.controller.formatter_test.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import study.boottest.controller.converter_test.converter.StringToIntegerConverter;
+import study.boottest.controller.formatter_test.formatter.MyNumberFormatter;
 
 @Configuration
-public class ConverterWebMvcConfig implements WebMvcConfigurer {
+public class FormatterConfig implements WebMvcConfigurer {
     
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToIntegerConverter());
+        registry.addFormatter(new MyNumberFormatter());
     }
 }

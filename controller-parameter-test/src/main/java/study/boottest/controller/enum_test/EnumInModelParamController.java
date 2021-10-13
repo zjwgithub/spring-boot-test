@@ -6,7 +6,7 @@ import study.boottest.controller.enum_test.enumType.SearchCodeNumberType;
 
 @RestController
 @RequestMapping("/enumtest")
-public class EnumModelParamController {
+public class EnumInModelParamController {
 
     @GetMapping("/enum-model")
     public String receiveEnum(BoardEnumDto boardEnumDto) {

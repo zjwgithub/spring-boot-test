@@ -1,25 +1,25 @@
-package study.boottest.controller.param_test.basic;
+package study.boottest.controller.param_test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import study.boottest.controller.param_test.basic.param.ExtendParam;
+import study.boottest.controller.param_test.param.ExtendsParam;
 
 @Slf4j
 @RestController
 @RequestMapping("/extend-param")
-public class ExtendParamController {
+public class ExtendsParamController {
     
     @GetMapping
-    public String getExtendParam(@ModelAttribute ExtendParam extendParam) {
+    public String getExtendParam(@ModelAttribute ExtendsParam extendsParam) {
         System.out.println("ExtendParamController.getExtendParam");
-        log.info("extendParam={}", extendParam);
-        return "GET OK, " + extendParam;
+        log.info("extendParam={}", extendsParam);
+        return "GET OK, " + extendsParam;
     }
 
     @PostMapping
-    public String postExtendParam(@ModelAttribute ExtendParam extendParam) {
+    public String postExtendParam(@ModelAttribute ExtendsParam extendsParam) {
         System.out.println("ExtendParamController.postExtendParam");
-        log.info("extendParam={}", extendParam);
-        return "POST OK, " + extendParam;
+        log.info("extendParam={}", extendsParam);
+        return "POST OK, " + extendsParam;
     }
 }

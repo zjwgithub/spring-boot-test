@@ -1,4 +1,4 @@
-package study.boottest.controller.param_test.basic.param;
+package study.boottest.controller.param_test.param;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -8,7 +8,7 @@ import study.boottest.controller.argumentResolver_test.argumentResolver.NestedPa
 import java.util.List;
 
 @Configuration
-public class ArgumentResolverWebMvcConfig implements WebMvcConfigurer {
+public class ArgumentResolverConfig implements WebMvcConfigurer {
     
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
