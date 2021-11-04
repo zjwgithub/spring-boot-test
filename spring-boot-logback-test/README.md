@@ -1,5 +1,7 @@
 ## logback-spring.xml
-### ConsoleAppender
+
+- ### ConsoleAppender
+```xml
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>
@@ -7,8 +9,10 @@
             </Pattern>
         </layout>
     </appender>
-    
-### RollingFileAppender (daily one file)
+```
+
+- ### RollingFileAppender (daily one file)
+```xml
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/spring-boot-logger.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -21,8 +25,10 @@
             </fileNamePattern>
         </rollingPolicy>
     </appender>
-    
-### RollingFileAppender (daily multiple files by size)
+```
+
+- ### RollingFileAppender (daily multiple files by size)
+```xml
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/spring-boot-logger.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -38,8 +44,10 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
+```
 
-### Logger
+- ### Logger
+```xml
     <root level="info">
         <appender-ref ref="Console" />
         <appender-ref ref="RollingFile" />
@@ -50,3 +58,4 @@
         <appender-ref ref="Console" />
         <appender-ref ref="RollingFile" />
     </logger>
+```
