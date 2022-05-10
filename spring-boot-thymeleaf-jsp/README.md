@@ -1,6 +1,13 @@
 
 ## thymeleaf 와 jsp 같이 사용하기
 
+- ### packaging war
+```groovy
+// build.gradle
+
+id 'war'
+```
+
 - ### jsp 의존성 추가
 ```groovy
 // build.gradle
