@@ -8,7 +8,7 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.7)
 
-2022-05-17 10:49:11.812  INFO 11611 --- [           main] s.s.SpringBootInitMethodTestApplication  : Starting SpringBootInitMethodTestApplication using Java 11.0.13 on ingpdevui-iMac.local with PID 11611 (/Volumes/macdata/personal/github/spring-boot-test/spring-boot-init-method-test/build/classes/java/main started by ingpdev in /Volumes/macdata/personal/github/spring-boot-test/spring-boot-init-method-test)
+2022-05-17 10:49:11.812  INFO 11611 --- [           main] s.s.SpringBootInitMethodTestApplication  : Starting SpringBootInitMethodTestApplication using Java 11.0.13
 2022-05-17 10:49:11.814  INFO 11611 --- [           main] s.s.SpringBootInitMethodTestApplication  : No active profile set, falling back to 1 default profile: "default"
 2022-05-17 10:49:12.485  INFO 11611 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2022-05-17 10:49:12.494  INFO 11611 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
