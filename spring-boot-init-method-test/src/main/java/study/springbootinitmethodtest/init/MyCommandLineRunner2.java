@@ -10,9 +10,7 @@ public class MyCommandLineRunner2 {
     @Bean
     public CommandLineRunner run() {
         return args -> {
-            System.out.println();
-            System.out.println("MyCommandLineRunner2");
-            System.out.println();
+            System.out.println("  MyCommandLineRunner2");
         };
     }
 }

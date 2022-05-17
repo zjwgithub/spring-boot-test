@@ -8,8 +8,6 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println();
-        System.out.println("MyCommandLineRunner");
-        System.out.println();
+        System.out.println("  MyCommandLineRunner");
     }
 }

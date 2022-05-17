@@ -9,8 +9,6 @@ public class MyPostConstruct {
 
     @PostConstruct
     public void run() {
-        System.out.println();
-        System.out.println("MyPostConstruct");
-        System.out.println();
+        System.out.println("  MyPostConstruct");
     }
 }
