@@ -79,43 +79,43 @@ public class MemberPersistenceConfig {
 
 ### ProductPersistenceConfig.java
 ```java
-    @Configuration
-    @PropertySource({"classpath:application.yaml"})
-    @EnableJpaRepositories(
-            basePackages = "study.springbootmultipledatasourcetest.product",
-            entityManagerFactoryRef = "productEntityManagerFactory",
-            transactionManagerRef = "productTransactionManager"
-    )
-    public class ProductPersistenceConfig {
-    
-        @Autowired
-        private Environment env;
-    
-        @Bean
-        @ConfigurationProperties(prefix = "product.datasource")
-        public DataSource productDataSource() {
-            return DataSourceBuilder.create().build();
-        }
-    
-        @Bean
-        public LocalContainerEntityManagerFactoryBean productEntityManagerFactory() {
-            Map<String, Object> properties = new HashMap<>();
-            properties.put("hibernate.hbm2ddl.auto", env.getProperty("product.jpa.hibernate.hbm2ddl.auto"));
-            properties.put("hibernate.dialect", env.getProperty("product.jpa.hibernate.dialect"));
-    
-            LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-            emf.setDataSource(productDataSource());
-            emf.setPackagesToScan(new String[]{"study.springbootmultipledatasourcetest.product"});
-            emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-            emf.setJpaPropertyMap(properties);
-            return emf;
-        }
-    
-        @Bean
-        public PlatformTransactionManager productTransactionManager() {
-            JpaTransactionManager transactionManager = new JpaTransactionManager();
-            transactionManager.setEntityManagerFactory(productEntityManagerFactory().getObject());
-            return transactionManager;
-        }
+@Configuration
+@PropertySource({"classpath:application.yaml"})
+@EnableJpaRepositories(
+        basePackages = "study.springbootmultipledatasourcetest.product",
+        entityManagerFactoryRef = "productEntityManagerFactory",
+        transactionManagerRef = "productTransactionManager"
+)
+public class ProductPersistenceConfig {
+
+    @Autowired
+    private Environment env;
+
+    @Bean
+    @ConfigurationProperties(prefix = "product.datasource")
+    public DataSource productDataSource() {
+        return DataSourceBuilder.create().build();
     }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean productEntityManagerFactory() {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("hibernate.hbm2ddl.auto", env.getProperty("product.jpa.hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.dialect", env.getProperty("product.jpa.hibernate.dialect"));
+
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(productDataSource());
+        emf.setPackagesToScan(new String[]{"study.springbootmultipledatasourcetest.product"});
+        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        emf.setJpaPropertyMap(properties);
+        return emf;
+    }
+
+    @Bean
+    public PlatformTransactionManager productTransactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(productEntityManagerFactory().getObject());
+        return transactionManager;
+    }
+}
 ```
