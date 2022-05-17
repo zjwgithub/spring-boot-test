@@ -1,5 +1,6 @@
 package study.boottest.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +10,16 @@ import static study.boottest.utils.Util.print;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class HelloController {
+
+    private final HelloService helloService;
 
     @GetMapping("/hello")
     public String hello() {
-        print(getClass(), "hello");
+        print(getClass(), "시작");
+        helloService.hello();
+        print(getClass(), "종료");
         return "ok";
     }
 
