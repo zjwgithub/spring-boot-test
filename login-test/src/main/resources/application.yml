@@ -1,8 +1,19 @@
-#logging:
-#  level: 
-#    root: debug
+logging:
+  level:
+    root: info
+    org.apache.coyote.http11: debug
+    org.springframework: debug
+    org.springframework.boot.autoconfigure.logging: info
+    com.zaxxer.hikari: debug
+    org.thymeleaf: debug
+    org.thymeleaf.TemplateEngine.CONFIG: info
 
 server:
   servlet:
     session:
       tracking-modes: cookie
+
+spring:
+  mvc:
+    servlet:
+      load-on-startup: 1
