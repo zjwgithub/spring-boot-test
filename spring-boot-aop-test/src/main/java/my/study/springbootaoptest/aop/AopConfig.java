@@ -1,10 +1,12 @@
 package my.study.springbootaoptest.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 @Aspect
 public class AopConfig {
@@ -30,6 +32,7 @@ public class AopConfig {
 //    @Around("execution(* my.study..repository..*(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("-----------------around start " + getMethodInfo(joinPoint));
+        System.out.println(joinPoint.getSignature());
         Object result = joinPoint.proceed();
         System.out.println("-----------------around end " + getMethodInfo(joinPoint));
         return result;
