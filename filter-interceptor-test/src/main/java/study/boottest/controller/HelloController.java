@@ -24,12 +24,19 @@ public class HelloController {
     }
 
     @GetMapping("/ex")
-    public String raiseEx() {
-        throw new RuntimeException("raiseEx 발생");
+    public String ex() {
+        print(getClass(), "RuntimeException 예외 발생");
+        throw new RuntimeException("RuntimeException 예외 발생");
+    }
+
+    @GetMapping("/ex-with-handler")
+    public String exWithHandler() {
+        print(getClass(), "IllegalStateException 예외 발생");
+        throw new IllegalStateException("IllegalStateException 예외 발생");
     }
     
     @ExceptionHandler
-    public void handleEx(RuntimeException ex) {
-        print(getClass(), "handleEx " + ex);
+    public void handleEx(IllegalStateException ex) {
+        print(getClass(), "IllegalStateException 예외 핸들링");
     }
 }
