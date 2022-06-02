@@ -1,0 +1,1 @@
+insert into my_item (item_name, price, quantity) values ('itemA', 1000, 10);

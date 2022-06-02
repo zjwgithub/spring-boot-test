@@ -1,0 +1,1 @@
+insert into sql_my_item (item_name, price, quantity) values ('itemB', 1000, 10);

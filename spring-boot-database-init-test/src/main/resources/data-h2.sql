@@ -1,0 +1,1 @@
+insert into my_item_h2 (item_name, price, quantity) values ('itemC', 1000, 10);
