@@ -8,8 +8,8 @@ import study.springbootinitmethodtest.beanPostProcessor.MyBeanPostProcessor;
 @Configuration
 public class MyConfig {
 
-    @Bean
-    public BeanPostProcessor myBeanPostProcessor() {
-        return new MyBeanPostProcessor();
-    }
+//    @Bean
+//    public BeanPostProcessor myBeanPostProcessor() {
+//        return new MyBeanPostProcessor();
+//    }
 }
