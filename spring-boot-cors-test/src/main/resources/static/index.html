@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        const fetchData = (url) => {
+            const data = {itemName: 'itemA'};
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("성공", data);
+            })
+            .catch(error => {
+                console.log("실패", error);
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded');
+
+            document.querySelectorAll('button.btn1')[0].addEventListener('click', () => {
+                console.log('click btn1');
+                fetchData('http://localhost:8080/items');
+            });
+            document.querySelectorAll('button.btn2')[0].addEventListener('click', () => {
+                console.log('click btn2');
+                fetchData('http://localhost:8081/items');
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div>
+    <button class="btn btn1">post http://localhost:8080/items</button>
+</div>
+<div>
+    <button class="btn btn2">post http://localhost:8081/items</button>
+</div>
+
+</body>
+</html>
